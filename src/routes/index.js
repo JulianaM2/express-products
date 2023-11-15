@@ -15,6 +15,8 @@ const router = Router();
  * @inner
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
+ * @example
+ * GET http://localhost:3000/health
  */
 router.get('/health', function (req, res) {
   res.send('Everything works !');

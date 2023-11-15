@@ -1,10 +1,10 @@
 /**
  * Build a common service response.
  *
- * @param {number} code
- * @param {Object} data
- * @param {string} message
- * @return {Object}
+ * @param {number} code Response status code
+ * @param {Object} data Respone data to be sent
+ * @param {string} message Response message to inform
+ * @return {Object} Returns object with code, data and message
  */
 function buildResponse(code, data, message) {
   return {

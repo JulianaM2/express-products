@@ -1,9 +1,9 @@
 /**
  * Add the existing request query params to url.
  *
- * @param {string} url
- * @param {Object} params
- * @return {string}
+ * @param {string} url Base url to add the query params
+ * @param {Object} params Query params with attributes q, page and fields
+ * @return {string} Returns the URL with the query params
  */
 function addUrlParameters(url, params) {
   const skip = 10;

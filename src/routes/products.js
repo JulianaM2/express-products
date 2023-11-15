@@ -15,8 +15,10 @@ const productsService = new ProductsService();
  * @function
  * @memberof module:routes/products
  * @inner
- * @param {string} path
- * @param {callback} middleware
+ * @param {string} path Express path
+ * @param {callback} middleware Express middleware
+ * @example
+ * GET http://localhost:3000/products?q=phone&page=1&fields=id,title,price
  */
 router.get('/', async function (req, res) {
   try {
@@ -34,8 +36,10 @@ router.get('/', async function (req, res) {
  * @function
  * @memberof module:routes/products
  * @inner
- * @param {string} path
- * @param {callback} middleware
+ * @param {string} path Express path
+ * @param {callback} middleware Express middleware
+ * @example
+ * GET http://localhost:3000/products/1
  */
 router.get('/:productId', async function (req, res) {
   try {

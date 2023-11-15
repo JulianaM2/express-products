@@ -23,17 +23,17 @@ class ProductsService {
    * @function
    * @memberof module:services/products
    * @inner
-   * @param {Object} params
-   * @return {Object}
+   * @param {Object} queryParams Express Request query params
+   * @return {Object} Returns a generic response with code and data found
    */
-  async getProducts(params) {
-    const res = await fetch(addUrlParameters(this.baseUrl, params));
+  async getProducts(queryParams) {
+    const res = await fetch(addUrlParameters(this.baseUrl, queryParams));
     const data = await res.json();
     delete data.skip;
 
     return buildResponse(200, {
       ...data,
-      page: +(params.page || 1),
+      page: +(queryParams.page || 1),
     }, 'Products found');
   }
 
@@ -42,8 +42,8 @@ class ProductsService {
    * @function
    * @memberof module:services/products
    * @inner
-   * @param {number} productId
-   * @return {Object}
+   * @param {number} productId Product id to search
+   * @return {Object} Returns a generic response with code and data found
    */
   async getProductById(productId) {
     if (productId) {
