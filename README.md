@@ -22,7 +22,7 @@ Run the following command to update the documentation
 npm run jsdoc
 ```
 
-Run the [documentation](docs/jsdoc/index.html) with:
+Run the documentation with:
 
 ```bash
 npm run docs
@@ -37,6 +37,3 @@ npm run lint
 ```
 
 The backend will be listenting at port 300 by default, but you can set the evironment variable `PORT` to use another one.
-
-
-## Docs
