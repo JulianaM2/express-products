@@ -8,11 +8,11 @@
 function addUrlParameters(url, params) {
   const skip = 10;
 
-  if (params.q) {
-    url = `${url}&q=${params.q}`;
-  }
+  const search = params.q ? `search?q=${params.q}&` : '?';
 
-  if (params.page) {
+  url = `${url}${search}limit=10`;
+
+  if (params.page && params.page > 0) {
     url = `${url}&skip=${skip * (params.page - 1)}`;
   }
 

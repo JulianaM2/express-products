@@ -27,11 +27,14 @@ class ProductsService {
    * @return {Object}
    */
   async getProducts(params) {
-    const productsUrl = `${this.baseUrl}?limit=10`;
+    const res = await fetch(addUrlParameters(this.baseUrl, params));
+    const data = await res.json();
+    delete data.skip;
 
-    const res = await fetch(addUrlParameters(productsUrl, params));
-
-    return buildResponse(200, await res.json(), 'Products found');
+    return buildResponse(200, {
+      ...data,
+      page: +(params.page || 1),
+    }, 'Products found');
   }
 
   /**
