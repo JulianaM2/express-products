@@ -1,3 +1,9 @@
+/** Express router providing products
+ * @module routes/products
+ * @requires express
+ */
+
+
 import { Router } from 'express';
 import ProductsService from '../services/products.service.js';
 

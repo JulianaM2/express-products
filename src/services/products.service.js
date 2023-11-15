@@ -1,8 +1,17 @@
+/** Products Service
+ * @module services/products
+ *
+ * @requires node-fetch
+ */
+
+
 import fetch from 'node-fetch';
 import { addUrlParameters } from '../helpers/products.helper.js';
 import { buildResponse } from '../helpers/common.helper.js';
 
-
+/**
+@constructor 
+**/
 class ProductsService {
   baseUrl;
 
@@ -12,7 +21,9 @@ class ProductsService {
 
   /**
    * Get all products with a limit of 10 products by page by default.
-   *
+   * @function
+   * @memberof module:services/products
+   * @inner
    * @param {Object} params
    * @return {Object}
    */
@@ -26,7 +37,9 @@ class ProductsService {
 
   /**
    * Get product by id.
-   *
+   * @function
+   * @memberof module:services/products
+   * @inner
    * @param {number} productId
    * @return {Object}
    */
