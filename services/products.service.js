@@ -1,4 +1,6 @@
 import fetch from 'node-fetch';
+import { addUrlParameters } from '../helpers/products.helper';
+import { buildResponse } from '../helpers/common.helper';
 
 class ProductsService {
   baseUrl;
@@ -10,33 +12,10 @@ class ProductsService {
   async getProducts(params) {
     const productsUrl = `${this.baseUrl}?limit=10`;
 
-    const res = await fetch(this.addUrlParameters(productsUrl, params));
-    return {
-      code: 200,
-      data: {
-        message: 'Data found',
-        data: await res.json()
-      }
-    };
+    const res = await fetch(addUrlParameters(productsUrl, params));
+    
+    return buildResponse(200, await res.json(), 'Products found');
   };
-
-  addUrlParameters(url, params) {
-    const skip = 10;
-
-    if (params.q) {
-      url = `${url}&q=${params.q}`;
-    }
-
-    if (params.page) {
-      url = `${url}&skip=${skip * (params.page - 1)}`;
-    }
-
-    if (params.fields) {
-      url = `${url}&select=${params.fields}`;
-    }
-
-    return url
-  }
 
   async getProductById(productId) {
     if (productId) {
@@ -45,23 +24,11 @@ class ProductsService {
       const res = await fetch(productIdUrl);
 
       if (res.status == 200) {
-        return {
-          code: 200,
-          data: {
-            message: 'Product found',
-            data: await res.json()
-          }
-        };
+        return buildResponse(200, await res.json(), 'Product found');
       }
     }
 
-    return {
-      code: 404,
-      data: {
-        message: 'Product not found',
-        data: null
-      }
-    };
+    return buildResponse(404, data, 'Product not found');
   };
 }
 
