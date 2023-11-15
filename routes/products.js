@@ -1,19 +1,16 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
+import ProductsService from '../services/products.service.js';
 
-router.get('/', function (req, res, next) {
+const router = Router();
+const productsService = new ProductsService();
+
+router.get('/', async function (req, res, next) {
   try {
-    const response = {
-      code: 200,
-      data: [],
-    }
-
-    res.status(200).send(response)
+    res.status(200).send(await productsService.getProducts(req.query))
   } catch (error) {
-    res.status(500).send('Internal server error. Try later.');
-
+    console.error('Error in: GET /products ', error)
+    res.status(500).send('An error has occurred, try later.');
   }
-
 });
 
-module.exports = router;
+export default router;
