@@ -33,7 +33,7 @@ class ProductsService {
 
     return buildResponse(200, {
       ...data,
-      page: +(queryParams.page || 1),
+      page: queryParams.page > 0 ? +queryParams.page : 1,
     }, 'Products found');
   }
 
