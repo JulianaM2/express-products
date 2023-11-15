@@ -15,8 +15,9 @@ const productsService = new ProductsService();
  * @function
  * @memberof module:routes/products
  * @inner
- * @param {string} path Express path
- * @param {callback} middleware Express middleware
+ * @param {string} q Optional. Query parameter to filter the products by name.
+ * @param {number} page Default 1. Query parameter to specify page to retrieve. Every page has a limit of 10 products.
+ * @param {number} fields Optional. Query parameter to specify fields that should be retrieve. String list of comma-separated values.ex: id,price. By default retrieves all fields.
  * @example
  * GET http://localhost:3000/products?q=phone&page=1&fields=id,title,price
  */
@@ -36,8 +37,7 @@ router.get('/', async function (req, res) {
  * @function
  * @memberof module:routes/products
  * @inner
- * @param {string} path Express path
- * @param {callback} middleware Express middleware
+ * @param {string} productId Id of the product to be retrieved
  * @example
  * GET http://localhost:3000/products/1
  */
