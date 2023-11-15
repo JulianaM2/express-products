@@ -12,10 +12,8 @@ function buildResponse(code, data, message) {
     data: {
       message,
       data,
-    }
-  }
+    },
+  };
 }
 
-export {
-  buildResponse,
-}
+export { buildResponse };

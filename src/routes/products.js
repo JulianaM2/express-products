@@ -3,7 +3,6 @@
  * @requires express
  */
 
-
 import { Router } from 'express';
 import ProductsService from '../services/products.service.js';
 
@@ -19,7 +18,7 @@ const productsService = new ProductsService();
  * @param {string} path
  * @param {callback} middleware
  */
-router.get('/', async function (req, res, next) {
+router.get('/', async function (req, res) {
   try {
     const response = await productsService.getProducts(req.query);
     res.status(response.code).send(response.data);
@@ -38,12 +37,12 @@ router.get('/', async function (req, res, next) {
  * @param {string} path
  * @param {callback} middleware
  */
-router.get('/:productId', async function (req, res, next) {
+router.get('/:productId', async function (req, res) {
   try {
     const response = await productsService.getProductById(req.params.productId);
     res.status(response.code).send(response.data);
   } catch (error) {
-    console.error('Error in: GET /:productId ', error)
+    console.error('Error in: GET /:productId ', error);
     res.status(500).send('An error has occurred, try later.');
   }
 });

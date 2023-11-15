@@ -20,9 +20,7 @@ function addUrlParameters(url, params) {
     url = `${url}&select=${params.fields}`;
   }
 
-  return url
+  return url;
 }
 
-export {
-  addUrlParameters,
-}
+export { addUrlParameters };

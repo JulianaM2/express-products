@@ -4,7 +4,6 @@
  * @requires node-fetch
  */
 
-
 import fetch from 'node-fetch';
 import { addUrlParameters } from '../helpers/products.helper.js';
 import { buildResponse } from '../helpers/common.helper.js';
@@ -16,7 +15,7 @@ class ProductsService {
   baseUrl;
 
   constructor() {
-    this.baseUrl = 'https://dummyjson.com/products/'
+    this.baseUrl = 'https://dummyjson.com/products/';
   }
 
   /**
@@ -33,7 +32,7 @@ class ProductsService {
     const res = await fetch(addUrlParameters(productsUrl, params));
 
     return buildResponse(200, await res.json(), 'Products found');
-  };
+  }
 
   /**
    * Get product by id.
@@ -55,7 +54,7 @@ class ProductsService {
     }
 
     return buildResponse(404, {}, 'Product not found');
-  };
+  }
 }
 
 export default ProductsService;

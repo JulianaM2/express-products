@@ -8,7 +8,11 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 app.use(morgan('dev'));
-app.use(urlencoded({ extended: false }));
+app.use(
+  urlencoded({
+    extended: false,
+  }),
+);
 app.use(json());
 app.use('/', indexRouter);
 app.use('/products', productsRouter);

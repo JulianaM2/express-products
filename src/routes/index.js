@@ -16,7 +16,7 @@ const router = Router();
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/health', function (req, res, next) {
+router.get('/health', function (req, res) {
   res.send('Everything works !');
 });
 
