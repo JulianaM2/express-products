@@ -4,6 +4,15 @@ import ProductsService from '../services/products.service.js';
 const router = Router();
 const productsService = new ProductsService();
 
+/**
+ * Get products.
+ * @name get/products
+ * @function
+ * @memberof module:routes/products
+ * @inner
+ * @param {string} path
+ * @param {callback} middleware
+ */
 router.get('/', async function (req, res, next) {
   try {
     const response = await productsService.getProducts(req.query);
@@ -14,6 +23,15 @@ router.get('/', async function (req, res, next) {
   }
 });
 
+/**
+ * Get product by id.
+ * @name get/products/:productId
+ * @function
+ * @memberof module:routes/products
+ * @inner
+ * @param {string} path
+ * @param {callback} middleware
+ */
 router.get('/:productId', async function (req, res, next) {
   try {
     const response = await productsService.getProductById(req.params.productId);

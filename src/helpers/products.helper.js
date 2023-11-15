@@ -1,3 +1,10 @@
+/**
+ * Add the existing request query params to url.
+ *
+ * @param {string} url
+ * @param {Object} params
+ * @return {string}
+ */
 function addUrlParameters(url, params) {
   const skip = 10;
 

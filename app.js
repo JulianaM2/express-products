@@ -1,7 +1,7 @@
 import express, { urlencoded, json } from 'express';
 import morgan from 'morgan';
-import indexRouter from './routes/index.js';
-import productsRouter from './routes/products.js';
+import indexRouter from './src/routes/index.js';
+import productsRouter from './src/routes/products.js';
 
 const app = express();
 
