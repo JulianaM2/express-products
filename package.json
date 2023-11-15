@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon src/app.js",
     "jsdoc": "jsdoc -a all -c jsdoc.json -r -R README.md src/**/**  -d docs/jsdoc",
-    "lint": "eslint src/** --quiet --fix"
+    "lint": "eslint src/** --quiet --fix",
+    "docs": "open-cli docs/jsdoc/index.html"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,8 @@
     "eslint": "^8.53.0",
     "jsdoc": "^4.0.2",
     "jsdoc-to-markdown": "^8.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "open-cli": "^7.2.0"
   },
   "type": "module"
 }
