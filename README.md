@@ -12,6 +12,9 @@ Afterwards, run the development server:
 npm run start:dev
 ```
 
+The backend will be listenting at port `3000` by default, but you can set the evironment variable `PORT` to use another one.
+
+
 ## Documentation
 
 [JSDoc](https://jsdoc.app/about-getting-started) is used to create the API Documentation.
@@ -35,5 +38,3 @@ Run linter with:
 ```bash
 npm run lint
 ```
-
-The backend will be listenting at port 300 by default, but you can set the evironment variable `PORT` to use another one.
